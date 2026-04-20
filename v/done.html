@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:'Georgia',serif;
+background:linear-gradient(120deg,#ffe6eb,#fff);
+overflow-x:hidden;
+}
+
+.intro{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.intro h1{
+font-size:50px;
+color:#e63973;
+}
+
+.open-btn{
+padding:15px 30px;
+font-size:20px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+}
+
+.main{
+display:none;
+padding:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.letter{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+margin-bottom:30px;
+text-align:center;
+}
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.memory{
+background:#fff;
+padding:20px;
+border-left:5px solid #ff4d6d;
+border-radius:10px;
+}
+
+/* UPDATED IMAGE FIT SECTION */
+.slider{
+position:relative;
+width:100%;
+max-width:1000px;
+height:500px;
+margin-top:30px;
+overflow:hidden;
+background:#fff0f5;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.slide{
+display:none;
+position:absolute;
+width:100%;
+height:100%;
+}
+
+.slide.active{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.slide img{
+max-width:100%;
+max-height:100%;
+width:auto;
+height:auto;
+object-fit:contain;
+display:block;
+margin:auto;
+border-radius:20px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:30px;
+background:white;
+border:none;
+padding:12px 16px;
+cursor:pointer;
+border-radius:50%;
+z-index:10;
+}
+
+.prev{
+left:15px;
+}
+
+.next{
+right:15px;
+}
+
+.message-box{
+margin-top:25px;
+background:#fff0f5;
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+
+.message-box h2{
+color:#d63384;
+}
+
+.message-box p{
+font-size:22px;
+}
+
+.final{
+text-align:center;
+margin-top:40px;
+font-size:24px;
+color:#e63973;
+font-weight:bold;
+}
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:20px;
+animation:floatUp 5s linear infinite;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-100vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro">
+<h1>Happy Anniversary ❤️</h1>
+<p>I made something special for you...</p>
+<button class="open-btn" onclick="openSite()">Open ur Story</button>
+</div>
+
+<div class="main">
+
+<div class="letter">
+<h2>To one of my Favorites 💌</h2>
+<p>
+Wishing you both a lifetime of love, health and happiness ❤️
+</p>
+</div>
+
+<div class="timeline">
+
+<div class="memory">
+<h3>💖 The Beginning</h3>
+<p>The day u guys met was the start of something magical.</p>
+</div>
+
+<div class="memory">
+<h3>🌸 Ur Moments</h3>
+<p>All those laughs, talks and memories together.</p>
+</div>
+
+<div class="memory">
+<h3>💍 Today</h3>
+<p>Another year of love, and forever to go.</p>
+</div>
+
+</div>
+
+<div class="slider">
+
+<div class="slide active">
+<img src="C:\Users\Dhanya\Desktop\vinnumoushi\v\photo1.jpeg">
+</div>
+
+<div class="slide">
+<img src="C:\Users\Dhanya\Desktop\vinnumoushi\v\photo2.jpeg">
+</div>
+
+<div class="slide">
+<img src="C:\Users\Dhanya\Desktop\vinnumoushi\v\photo3.jpeg">
+</div>
+
+<div class="slide">
+<img src="C:\Users\Dhanya\Desktop\vinnumoushi\v\photo4.jpeg">
+</div>
+
+<div class="slide">
+<img src="C:\Users\Dhanya\Desktop\vinnumoushi\v\photo5.jpeg">
+</div>
+
+<div class="slide">
+<img src="C:\Users\Dhanya\Desktop\vinnumoushi\v\photo6.jpeg">
+</div>
+
+
+<button class="nav prev" onclick="prevSlide()">❮</button>
+<button class="nav next" onclick="nextSlide()">❯</button>
+
+</div>
+
+<div class="message-box">
+
+<h2 id="slideTitle">
+Our First Memory 💖
+</h2>
+
+<p id="slideMessage">
+Happy Anniversary to the most amazing aunt and uncle!
+</p>
+
+</div>
+
+<div class="final">
+❤️
+</div>
+
+</div>
+
+<script>
+
+function openSite(){
+document.querySelector(".intro").style.display="none";
+document.querySelector(".main").style.display="block";
+startHearts();
+}
+
+let index=0;
+let slides=document.querySelectorAll(".slide");
+
+let titles=[
+"ur First Memory 💖",
+"ur Beautiful Journey 🌸",
+"Forever Love ❤️",
+"Happy Anniversary 💍"
+];
+
+let messages=[
+"Your commitment inspires everyone around you.",
+"Every laugh and every hug became beautiful memories.",
+"Hope u choose each other again and again.",
+"HAPPY ANNIVERSARY!!"
+];
+
+function showSlide(i){
+
+slides.forEach(s=>{
+s.classList.remove("active");
+});
+
+slides[i].classList.add("active");
+
+document.getElementById("slideTitle").innerText=titles[i];
+document.getElementById("slideMessage").innerText=messages[i];
+
+}
+
+function nextSlide(){
+index=(index+1)%slides.length;
+showSlide(index);
+}
+
+function prevSlide(){
+index=(index-1+slides.length)%slides.length;
+showSlide(index);
+}
+
+/* AUTO SLIDE */
+setInterval(function(){
+nextSlide();
+},4000);
+
+/* FLOATING HEARTS */
+function startHearts(){
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"%";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+},300);
+
+}
+
+</script>
+
+</body>
+</html>
